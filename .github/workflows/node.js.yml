@@ -28,4 +28,10 @@ jobs:
     - run: |
           touch .env
           echo "${{ secrets.PROD }}" > .env
-    - run: pm2 start src/index.js --name my-app
+    - name: Start application with PM2
+      run: |
+          npm install -g pm2  # Ensure PM2 is installed
+          pm2 start src/index.js --name my-app  # Start the application
+          pm2 logs my-app  # Display logs to check for errors
+    - name: Save PM2 process list
+      run: pm2 save  # Ensure PM2 saves the current state
