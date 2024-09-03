@@ -32,5 +32,5 @@ jobs:
       run: pm2 start npm --name my-app -- start
 
     # Optionally, add a step to save pm2 logs or status output
-    - name: Show pm2 logs
-      run: pm2 logs my-app
+    # - name: Show pm2 logs
+    #   run: pm2 logs my-app
