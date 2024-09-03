@@ -1,15 +1,11 @@
-# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
-
 name: Node.js CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
 
 jobs:
   build:
-
     runs-on: self-hosted
 
     strategy:
@@ -26,10 +22,6 @@ jobs:
         cache: 'npm'
     - run: npm ci
     - run: |
-          touch .env
-          echo "${{ secrets.PROD }}" > .env
-    - run: pm2 start src/index.js --name my-app
-
-    # Optionally, add a step to save pm2 logs or status output
-    # - name: Show pm2 logs
-    #   run: pm2 logs my-app
+        touch .env
+        echo "${{ secrets.PROD }}" > .env
+    - run: pm2 start src/index.js --name my-app  # Corrected command to use pm2
