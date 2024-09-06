@@ -24,6 +24,15 @@ const generateAccessAndRefreshTokens = async (userId) => {
   }
 };
 
+
+// demo
+
+const demo = (req,res) => {
+  return res
+    .status(200)
+    .json(200, "Api is running successfully !!!!!!!!!!");
+}
+
 const registerUser = asyncHandler(async (req, res) => {
   // get user details from frontend
   // validation -- not empty
@@ -98,6 +107,7 @@ const registerUser = asyncHandler(async (req, res) => {
     .status(201)
     .json(new ApiResponse(200, createdUser, "User registered Successfully"));
 });
+
 
 const loginUser = asyncHandler(async (req, res) => {
   // get data from req body
@@ -482,7 +492,8 @@ module.exports = {
   updateUserAvatar,
   updateUserCoverImage,
   getUserChannelProfile,
-  getWatchHistory
+  getWatchHistory,
+  demo
 };
 
 //  improvements that i can do

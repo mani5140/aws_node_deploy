@@ -11,6 +11,7 @@ const {
   updateUserCoverImage,
   getUserChannelProfile,
   getWatchHistory,
+  demo,
 } = require("../controllers/user.controller");
 const { upload } = require("../middlewares/multer.middleware");
 const { verifyJWT } = require("../middlewares/auth.middleware");
@@ -32,6 +33,9 @@ router.route("/register").post(
 );
 
 router.route("/login").post(loginUser);
+
+// for deployment test
+router.route("/demo").get(demo);
 
 
 // Secured Routes
